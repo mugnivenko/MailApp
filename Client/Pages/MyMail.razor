@@ -1,0 +1,54 @@
+﻿@page "/mymail"
+@using MailApp.Client.Models;
+
+<PageTitle>My messages</PageTitle>
+
+@if (UserState.Id is null)
+{
+    Navigation.NavigateTo("enter");
+}
+
+@if (_state == QueryState.Loading)
+{
+    foreach(var _ in Enumerable.Range(1, 5))
+        {
+            <MudExpansionPanel HideIcon="true">
+                <TitleContent>
+                    <MudSkeleton Animation="Animation.Wave" />       
+                </TitleContent>
+            </MudExpansionPanel>
+        }
+}
+
+@if(_state == QueryState.Success && MailsWithSender.Count() == 0)
+{
+    <MudGrid>
+        <MudItem Justify="center" xs=12>
+            <MudPaper Class="pa-16 ma-2" Elevation="3">
+                <MudText Class="mt-1">You haven't received any messages yet</MudText>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+}
+
+@if (_state == QueryState.Success && MailsWithSender.Count != 0)
+{
+    @foreach(var mailWithSender in MailsWithSender)
+    {
+        <MudExpansionPanel HideIcon="true">
+            <TitleContent>
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex">
+                        <MudIcon Icon="@Icons.Material.Filled.Email" Color="Color.Default" class="mr-3" />
+                        <MudText class="mr-3"><strong>From:</strong> @mailWithSender.FromUser.UserName</MudText>
+                        <MudText>@mailWithSender.Mail.Title</MudText>
+                    </div>
+                    <MudText class="mr-3">@Convert.ToDateTime(@mailWithSender.Mail.CreatedAt).ToString("yyyy-MM-dd HH:mm tt")</MudText>
+                </div>
+            </TitleContent>
+            <ChildContent>
+                <pre>@mailWithSender.Mail.Body</pre>
+            </ChildContent>
+        </MudExpansionPanel>
+    }
+}

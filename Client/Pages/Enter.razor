@@ -1,0 +1,24 @@
+@page "/enter"
+
+@if (UserState.Id is null)
+{
+<MudGrid Justify="Justify.Center" Class="h-100 align-items-center">
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator/>
+                <MudGrid>
+                    <MudItem xs="12">
+                        <MudTextField T="string" Label="Username" @bind-Value="model.Username" For="@(() => model.Username)"/>
+                    </MudItem>
+                    <MudItem xs="12" Class="d-flex justify-content-end">
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">
+                            Enter
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </EditForm>   
+        </MudPaper>
+    </MudItem>
+</MudGrid>
+}

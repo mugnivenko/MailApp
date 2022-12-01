@@ -1,0 +1,12 @@
+/home/matvey/MailApp/Shared/bin/Debug/net7.0/MailApp.Shared.deps.json
+/home/matvey/MailApp/Shared/bin/Debug/net7.0/MailApp.Shared.dll
+/home/matvey/MailApp/Shared/bin/Debug/net7.0/MailApp.Shared.pdb
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/MailApp.Shared.csproj.AssemblyReference.cache
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/MailApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/MailApp.Shared.AssemblyInfoInputs.cache
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/MailApp.Shared.AssemblyInfo.cs
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/MailApp.Shared.csproj.CoreCompileInputs.cache
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/MailApp.Shared.dll
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/refint/MailApp.Shared.dll
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/MailApp.Shared.pdb
+/home/matvey/MailApp/Shared/obj/Debug/net7.0/ref/MailApp.Shared.dll

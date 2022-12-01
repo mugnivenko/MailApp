@@ -1,0 +1,32 @@
+﻿@page "/"
+@implements IAsyncDisposable
+
+<PageTitle>Send message</PageTitle>
+
+@if (UserState.Id is null)
+{
+    Navigation.NavigateTo("enter");
+}
+
+<MudForm @ref="form" @bind-IsValid="@success">
+    <MudGrid>
+        <MudItem xs="12">
+            <MudAutocomplete T="string" Label="Select a recipient" Required="true" @bind-Value="@_selectedUser"
+                             SearchFuncWithCancel="@Search" Variant="Variant.Outlined" ShowProgressIndicator="true"
+                             ResetValueOnEmptyText="true" />
+        </MudItem>
+        <MudItem xs="12">
+            <MudTextField @bind-Value="@_title" Label="Title" Variant="Variant.Outlined" Required="true"
+                          RequiredError="Title is required!" />
+        </MudItem>
+        <MudItem xs="12">
+            <MudTextField @bind-Value="@_body" Variant="Variant.Text" Lines="10" Required="true"
+                          RequiredError="Message body is required!" />
+        </MudItem>
+        <MudItem>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success)" OnClick="@OnSubmit">
+            Send
+        </MudButton>
+    </MudItem>
+    </MudGrid>
+</MudForm>
