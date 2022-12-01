@@ -97,17 +97,7 @@ public partial class Index : ComponentBase
             {
                 Snackbar.Add(
                     $"User {senderName} sent you a message with the subject \"{messageTitle}\"",
-                    Severity.Info,
-                    config =>
-                    {
-                        config.Action = "Show";
-                        config.ActionColor = Color.Primary;
-                        config.Onclick = snackbar =>
-                        {
-                            Navigation.NavigateTo("mymail");
-                            return Task.CompletedTask;
-                        };
-                    }
+                    Severity.Info
                 );
 
             }
